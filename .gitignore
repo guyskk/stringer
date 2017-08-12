@@ -3,6 +3,7 @@
 .bundle
 .config
 config.env
+data
 .ruby-gemset
 coverage
 InstalledFiles

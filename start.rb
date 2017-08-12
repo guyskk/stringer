@@ -6,6 +6,7 @@ def wait_postgres
       puts("Waiting for postgres started")
       sleep(1)
   end
+  sleep(3)
 end
 
 OptionParser.new do |opts|
@@ -20,7 +21,7 @@ OptionParser.new do |opts|
       wait_postgres
       while true do
         system("bundle exec rake fetch_feeds")
-        sleep(90)
+        sleep(300)
       end
 
     elsif command == "init" then
