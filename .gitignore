@@ -2,7 +2,6 @@
 *.rbc
 .bundle
 .config
-config.env
 data
 .ruby-gemset
 coverage
