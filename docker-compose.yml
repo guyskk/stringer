@@ -1,0 +1,31 @@
+version: '2'
+services:
+    app:
+        build: .
+        env_file:
+            - config.env
+        ports:
+            - '80:80'
+        command: ['./start.rb', 'app']
+        volumes:
+            - .:/project
+    init:
+        build: .
+        env_file:
+            - config.env
+        command: ['./start.rb', 'init']
+        volumes:
+            - .:/project
+    crontab:
+        build: .
+        env_file:
+            - config.env
+        command: ['./start.rb', 'crontab']
+        volumes:
+            - .:/project
+    postgres:
+        image: postgres:9.6
+        volumes:
+            - ./data/postgres:/var/lib/postgresql/data
+        environment:
+            - 'POSTGRES_PASSWORD=password'
